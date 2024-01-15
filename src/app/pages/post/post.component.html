@@ -1,0 +1,15 @@
+<div class="px-[16px] mb-[24px]">
+    <p *ngIf="isLoading">Loading...</p>
+    <div *ngIf="!isLoading" class="mb-[40px]">
+        <h2 class="text-[24px] font-bold capitalize">{{post.title}}</h2>
+        <p class="text-[16px] mb-[30px]">{{post.body}}</p>
+        <p *ngIf="!showComments" class="font-medium mb-[10px] underline cursor-pointer" (click)="toggleShowComments(true)">Show comments ({{comments.length}})</p>
+        <p *ngIf="showComments"  class="font-medium mb-[10px] underline cursor-pointer" (click)="toggleShowComments(false)">Hide comments</p>
+    </div>
+    <ul *ngIf="showComments">
+        <li *ngFor="let comment of comments">
+            <h2 class="text-[24px] font-bold capitalize">{{comment.name}}</h2>
+            <p class="text-[16px] mb-[20px]">{{comment.body}}</p>
+        </li>
+    </ul>
+</div>
