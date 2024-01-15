@@ -1,0 +1,11 @@
+<div>
+    <p *ngIf="isLoading">Loading...</p>
+    <ul *ngIf="!isLoading">
+        <li *ngFor="let post of posts" class="px-[16px] mb-[24px]">
+            <a routerLink="/post/{{ post.id }}" class="cursor-pointer">
+                <h2 class="text-[24px] font-bold capitalize">{{post.title}}</h2>
+            </a>
+            <p class="text-[16px] mb-[20px]">{{post.body}}</p>
+        </li>
+    </ul>
+</div>
